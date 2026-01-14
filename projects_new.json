@@ -1,87 +1,78 @@
 [
     {
-        "title": "AI Chat Interface",
+        "title": "Django_issue_Tracker",
         "description": "A futuristic GPT-powered chatbot UI with glowing neon design. Built with React and Node.js.",
-        "github": "https://github.com/yourusername/ai-chat-interface",
-        "image": "https://via.placeholder.com/400x250/00ffff/000000?text=AI+Chat",
-        "technologies": ["React", "Node.js", "OpenAI API"],
-        "live_demo": "https://your-ai-chat-demo.com",
+        "github": "https://github.com/Yash-231-hue/Backend_project2.git",
+        "image": "static/css/images/image.png",
+        "technologies": ["Django", "PostgreSQL", "REST API"],
+        "live_demo": "--",
         "category": "Projects"
     },
     {
-        "title": "Cyber Dashboard",
+        "title": "Clinic Database Management",
         "description": "A 3D data dashboard built using Flask + Three.js visualizations. Interactive charts and real-time data.",
-        "github": "https://github.com/yourusername/cyber-dashboard",
-        "image": "https://via.placeholder.com/400x250/ff00ff/000000?text=Cyber+Dashboard",
-        "technologies": ["Flask", "Three.js", "D3.js"],
-        "live_demo": "https://your-dashboard-demo.com",
+        "github": "https://github.com/Yash-231-hue/Flask-App.git",
+        "image": "static/css/images/Screenshot 2026-01-14 141047.png",
+        "technologies": ["Flask", "React.js", "jinja2", "MySql"],
+        "live_demo": "--",
         "category": "Projects"
     },
     {
-        "title": "Portfolio 2.0",
-        "description": "Next-gen portfolio with Tailwind animations and GSAP effects. Responsive and fast.",
-        "github": "https://github.com/yourusername/portfolio-2.0",
+        "title": "Product Management System(RBAC)",
+        "description": ".",
+        "github": "https://github.com/Yash-231-hue/Backend_project1.git",
+        "image": "static/css/images/Screenshot 2025-11-26 115909.png",
+        "technologies": ["React.js", "Node.js", "MongoDB","Express.js"],
+        "live_demo": "--",
+        "category": "Projects"
+    },
+    {
+        "title": "pdf_to_docx",
+        "description": ".",
+        "github": "https://github.com/Yash-231-hue/pdf_to_docx.git",
         "image": "https://via.placeholder.com/400x250/ffff00/000000?text=Portfolio+2.0",
-        "technologies": ["Flask", "Tailwind CSS", "GSAP"],
-        "live_demo": "https://your-portfolio-demo.com",
+        "technologies": ["Django", "Python"],
+        "live_demo": "--",
         "category": "Projects"
     },
     {
-        "title": "E-commerce Platform",
-        "description": "Full-stack e-commerce site with payment integration and admin panel.",
-        "github": "https://github.com/yourusername/ecommerce-platform",
-        "image": "https://via.placeholder.com/400x250/ff0000/000000?text=E-commerce",
-        "technologies": ["Django", "React", "Stripe"],
-        "live_demo": "https://your-ecommerce-demo.com",
-        "category": "Projects"
-    },
-    {
-        "title": "Weather App",
-        "description": "Beautiful weather app with location-based forecasts and animations.",
-        "github": "https://github.com/yourusername/weather-app",
-        "image": "https://via.placeholder.com/400x250/00ff00/000000?text=Weather+App",
-        "technologies": ["Vue.js", "Weather API", "CSS Animations"],
-        "live_demo": "https://your-weather-demo.com",
-        "category": "Projects"
-    },
-    {
-        "title": "Bug Report Slideshow",
+        "title": "Bug Report",
         "description": "A slideshow presentation on bug reporting best practices.",
-        "image": "static/images/bug_report.jpg",
-        "link": "https://example.com/bug-report-slideshow",
-        "technologies": ["PowerPoint", "Presentation"],
+        "image": "static/css/images/OKP5E60.jpg",
+        "link": "--",
+        "technologies": ["github_reports", "screenshots"],
         "category": "Presentations",
-        "github": "",
-        "live_demo": "https://example.com/bug-report-slideshow"
+        "github": "https://github.com/Yash-231-hue/unknown_bug_report_2025.git",
+        "live_demo": "--"
     },
     {
         "title": "Hack The Box Lab Slideshow",
         "description": "Slideshow detailing walkthroughs for Hack The Box labs.",
-        "image": "static/images/htb_lab.jpg",
-        "link": "https://example.com/htb-lab-slideshow",
-        "technologies": ["PowerPoint", "Cybersecurity"],
+        "image": "static/css/images/wp11258431-hack-the-box-wallpapers.jpg",
+        "link": "https://github.com/Yash-231-hue/oxHTB.git",
+        "Concepts": ["Privilage escalation", "Exploitation"],
         "category": "Labs",
-        "github": "",
-        "live_demo": "https://example.com/htb-lab-slideshow"
+        "github": "https://github.com/Yash-231-hue/oxHTB.git",
+        "live_demo": "--"
     },
     {
-        "title": "Other Labs Leaderboard",
+        "title": "Try Hack Me",
         "description": "A leaderboard showcasing top performers in various labs.",
-        "image": "static/images/leaderboard.jpg",
+        "image": "static/css/images/Tryhackme--Streamline-Simple-Icons.svg",
         "link": "https://example.com/labs-leaderboard",
-        "technologies": ["JavaScript", "HTML", "CSS"],
+        "Remainder": ["Maybe temporarily blocked"],
         "category": "Labs",
-        "github": "",
-        "live_demo": "https://example.com/labs-leaderboard"
+        "github": "https://github.com/Yash-231-hue/THM.git",
+        "live_demo": "--"
     },
     {
-        "title": "Research Slideshow",
+        "title": "Blog and other Reports",
         "description": "Slideshow on research findings and methodologies.",
-        "image": "static/images/research.jpg",
+        "image": "static/css/images/OKP5E60.jpg",
         "link": "https://example.com/research-slideshow",
-        "technologies": ["PowerPoint", "Research"],
+        "technologies": ["github", "Research"],
         "category": "Presentations",
-        "github": "",
-        "live_demo": "https://example.com/research-slideshow"
+        "github": "https://github.com/Yash-231-hue/blog_on_github.git",
+        "live_demo": "--"
     }
 ]

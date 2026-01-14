@@ -41,22 +41,22 @@ def home():
         'Labs': [p for p in projects if p.get('category') == 'Labs']
     }
     
-    return render_template("index.html", projects=projects, categorized_projects=categorized_projects, visitor_ip=visitor_ip)
+    return render_template("index_new.html", projects=projects, categorized_projects=categorized_projects, visitor_ip=visitor_ip)
 
 # Route for About page (optional)
 @app.route("/about")
 def about():
-    return render_template("index.html", section="about")
+    return render_template("index_new.html", section="about")
 
 # Route for Projects page (optional)
 @app.route("/projects")
 def projects():
-    return render_template("index.html", section="projects")
+    return render_template("index_new.html", section="projects")
 
 # Route for Contact page (optional)
 @app.route("/contact")
 def contact():
-    return render_template("index.html", section="contact")
+    return render_template("index_new.html", section="contact")
 
 # Route to handle contact form submission
 @app.route("/contact", methods=["POST"])
@@ -72,7 +72,7 @@ def submit_contact():
     print(f"Message: {message}")
 
     # You could redirect to a thank you page or back to contact
-    return render_template("index.html", section="contact", message_sent=True)
+    return render_template("index_new.html", section="contact", message_sent=True)
 
 # Run the app
 if __name__ == "__main__":

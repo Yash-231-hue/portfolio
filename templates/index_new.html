@@ -1,389 +1,286 @@
 {% extends "base.html" %}
-{% block title %}Futuristic Portfolio{% endblock %}
+{% block title %}Yash Gujarathi | Portfolio{% endblock %}
 
 {% block content %}
 {% if message_sent %}
-<div class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-bounce">
-    Message sent successfully! Thank you for reaching out.
+<div id="toast" class="fixed top-10 right-10 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl z-[100] animate-bounce flex items-center gap-3">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    <span class="font-bold">Message sent successfully!</span>
 </div>
 {% endif %}
-<div class="fixed top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg z-50 text-sm">
-    Your IP: {{ visitor_ip }}
+
+<div class="fixed bottom-4 left-4 bg-gray-900/80 backdrop-blur-md text-red-400 px-3 py-1 rounded-full shadow-lg z-50 text-xs border border-red-500/30 font-mono">
+    <span class="opacity-70">TERMINAL_IP:</span> {{ visitor_ip }}
 </div>
-<header class="text-center py-20 relative">
-    <div class="mb-8">
-        <img src="https://via.placeholder.com/200x200/ff0000/000000?text=Your+Photo" alt="Your Photo" class="w-40 h-40 rounded-full mx-auto border-4 border-red-400 shadow-lg">
+
+<header class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+    <div class="absolute -z-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+    
+    <div class="mb-8" data-aos="zoom-in">
+        <img src="static/css/images/Gemini_Generated_Image_n2z14kn2z14kn2z1.png" alt="Yash Gujarathi" 
+             class="w-40 h-40 rounded-full mx-auto border-4 border-blue-500 shadow-[0_0_20px_rgba(37,99,235,0.3)] object-cover">
     </div>
-    <h1 data-aos="fade-down" class="text-5xl md:text-7xl font-bold text-gray-800">
-        YASH GUJARATHI
+    
+    <h1 data-aos="fade-down" class="text-6xl md:text-8xl font-black text-gray-900 tracking-tighter">
+        <span class="text-blue-600">YASH GUJARATHI</span>
     </h1>
-    <p data-aos="fade-up" class="mt-4 text-lg text-gray-600">
-        Cybersecurity Practitioner • Developer • Student
+    
+    <p data-aos="fade-up" data-aos-delay="200" class="mt-6 text-xl md:text-2xl text-gray-600 font-light max-w-2xl">
+        Cybersecurity Practitioner • Python Backend Developer • Student
     </p>
-    <button id="skills-btn" class="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg">
-        View My Skills
-    </button>
+    
+    <div data-aos="fade-up" data-aos-delay="400" class="mt-10 flex gap-4">
+        <button id="skills-btn" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-blue-500/20">
+            View My Skills
+        </button>
+        <a href="#projects" class="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-bold rounded-2xl hover:bg-gray-50 transition-all shadow-sm">
+            See Work
+        </a>
+    </div>
+    <br>
+    <p>“Note: The bug reports and lab reports are confidential and are temporarily not publicly accessible.”</p>
 </header>
 
-<section id="about" class="max-w-4xl mx-auto text-center py-20 px-4" data-aos="fade-up">
-    <h2 class="text-3xl mb-4 text-blue-600">About Me</h2>
-    <p class="text-gray-700 leading-relaxed mb-8">
-        I'm a Cybersecurity Practitioner passionate about Offensive Security and automating tasks using tools like 'n8n'.
-        I mainly focus on learning new technologies and staying ahead in the field.
-    </p>
+<section id="about" class="max-w-6xl mx-auto py-24 px-6">
+    <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-blue-600 font-mono tracking-widest uppercase text-sm mb-2 font-bold">// 01. About Me</h2>
+        <h3 class="text-4xl font-bold text-gray-900">Pushing the boundaries of Security</h3>
+        <p class="text-gray-600 mt-6 text-lg leading-relaxed max-w-3xl mx-auto">
+            I'm a Cybersecurity Practitioner passionate about **Offensive Security** and automating complex workflows using AI tools. 
+            I focus on bridging the gap between robust backend architecture and impenetrable security protocols.
+        </p>
+    </div>
 
-    <h3 class="text-2xl mb-6 text-blue-600">Achievements</h3>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-            <h4 class="text-xl text-blue-600 mb-2">🏆 Full Stack Developer</h4>
-            <p class="text-gray-700">Certified in modern web technologies including React, Node.js, and Python Flask.</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {% set achievements = [
+            {'icon': '🏆', 'title': 'Full Stack Dev', 'desc': 'Certified in React, Node.js, and Python Flask and Django.'},
+            {'icon': '🚀', 'title': 'rooms', 'desc': '20+ rooms completed on Try Hack me.'},
+            {'icon': '💡', 'title': 'Bug Hunter', 'desc': 'Entry level'},
+            {'icon': '📚', 'title': 'Learner', 'desc': '50+ Labs solved in emerging cyber technologies.'}
+        ] %}
+        {% for item in achievements %}
+        <div class="p-8 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+            <div class="text-4xl mb-4">{{ item.icon }}</div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">{{ item.title }}</h4>
+            <p class="text-gray-600 text-sm leading-relaxed">{{ item.desc }}</p>
         </div>
-        <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-            <h4 class="text-xl text-blue-600 mb-2">🚀 Open Source Contributor</h4>
-            <p class="text-gray-700">Contributed to 15+ open source projects with over 500 stars on GitHub.</p>
-        </div>
-        <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-            <h4 class="text-xl text-blue-600 mb-2">💡 Innovation Award</h4>
-            <p class="text-gray-700">Won first place in the 2024 Tech Innovation Hackathon for AI-powered solutions.</p>
-        </div>
-        <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-            <h4 class="text-xl text-blue-600 mb-2">📚 Continuous Learner</h4>
-            <p class="text-gray-700">Completed 50+ online courses and certifications in emerging technologies.</p>
-        </div>
+        {% endfor %}
     </div>
 </section>
 
-<section id="projects" class="py-20 bg-gray-50" data-aos="zoom-in-up">
+<section id="projects" class="py-24 bg-gray-50/50">
     <div class="max-w-7xl mx-auto px-6">
-        <!-- Navigation Tabs -->
-        <div class="flex justify-center mb-10">
-            <div class="bg-white rounded-lg shadow-md p-2">
-                <button class="tab-btn px-6 py-3 rounded-md font-semibold transition-all active bg-blue-600 text-white" data-tab="projects-tab">Projects</button>
-                <button class="tab-btn px-6 py-3 rounded-md font-semibold transition-all text-gray-600 hover:text-blue-600" data-tab="presentations-tab">Presentations</button>
-                <button class="tab-btn px-6 py-3 rounded-md font-semibold transition-all text-gray-600 hover:text-blue-600" data-tab="labs-tab">Labs</button>
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-gray-200 inline-flex">
+                <button class="tab-btn px-8 py-3 rounded-xl font-bold transition-all active bg-blue-600 text-white" data-tab="projects-tab">Projects</button>
+                <button class="tab-btn px-8 py-3 rounded-xl font-bold transition-all text-gray-500 hover:text-blue-600" data-tab="presentations-tab">Bug Reports</button>
+                <button class="tab-btn px-8 py-3 rounded-xl font-bold transition-all text-gray-500 hover:text-blue-600" data-tab="labs-tab">Practice Labs</button>
             </div>
         </div>
 
-        <!-- Projects Tab -->
-        <div id="projects-tab" class="tab-content">
-            <h2 class="text-3xl text-center text-gray-800 mb-10">Projects</h2>
-            <div class="relative overflow-hidden rounded-xl">
-                <div class="carousel flex transition-transform duration-500 ease-in-out" id="projects-carousel">
-                    {% for project in categorized_projects.Projects %}
-                    <div class="carousel-item flex-shrink-0 w-full px-4">
-                        <div class="project-card bg-white border border-gray-200 rounded-xl p-10 hover:border-blue-300 transition-all duration-300 min-h-[600px] shadow-sm">
-                            <div class="flex flex-col md:flex-row items-center gap-8 h-full">
-                                <div class="md:w-1/2">
-                                    <img src="{{ project.image }}" alt="{{ project.title }}" class="w-full h-80 object-cover rounded-lg shadow-md">
+        {% for category, items in categorized_projects.items() %}
+        <div id="{{ category|lower }}-tab" class="tab-content {% if category != 'Projects' %}hidden{% endif %}" data-aos="fade-up">
+            <div class="relative group">
+                <div class="carousel flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]" id="{{ category|lower }}-carousel">
+                    {% for item in items %}
+                    <div class="carousel-item flex-shrink-0 w-full px-2">
+                        <div class="bg-white border border-gray-100 rounded-[2.5rem] overflow-hidden shadow-lg flex flex-col md:flex-row min-h-[550px]">
+                            <div class="md:w-1/2 relative overflow-hidden">
+                                <img src="{{ item.image }}" alt="{{ item.title }}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            </div>
+                            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                                <span class="text-blue-600 font-bold text-sm uppercase tracking-widest mb-2">{{ category[:-1] }}</span>
+                                <h3 class="text-4xl font-black text-gray-900 mb-4">{{ item.title }}</h3>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">{{ item.description }}</p>
+                                
+                                <div class="mb-8">
+                                    <h4 class="text-gray-900 font-bold mb-3">Tech Stack</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for tech in item.technologies %}
+                                        <span class="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-bold">{{ tech }}</span>
+                                        {% endfor %}
+                                    </div>
                                 </div>
-                                <div class="md:w-1/2 flex flex-col justify-center">
-                                    <h3 class="text-4xl text-gray-800 mb-4 font-bold">{{ project.title }}</h3>
-                                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">{{ project.description }}</p>
-                                    <div class="mb-6">
-                                        <h4 class="text-gray-800 mb-2 text-xl">Technologies:</h4>
-                                        <div class="flex flex-wrap gap-2">
-                                            {% for tech in project.technologies %}
-                                            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{{ tech }}</span>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-4">
-                                        <a href="{{ project.github }}" target="_blank" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all shadow-md text-lg">
-                                            GitHub
-                                        </a>
-                                        <a href="{{ project.live_demo }}" target="_blank" class="px-8 py-4 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-full transition-all text-lg">
-                                            Live Demo
-                                        </a>
-                                    </div>
+
+                                <div class="flex gap-4">
+                                    {% if item.github %}
+                                    <a href="{{ item.github }}" target="_blank" class="px-6 py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-all">GitHub</a>
+                                    {% endif %}
+                                   
                                 </div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full transition-all shadow-md" id="projects-prevBtn">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full transition-all shadow-md" id="projects-nextBtn">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-                <div class="flex justify-center mt-8 space-x-3" id="projects-indicators">
-                    {% for project in categorized_projects.Projects %}
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-600 transition-all" data-slide="{{ loop.index0 }}"></button>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
 
-        <!-- Presentations Tab -->
-        <div id="presentations-tab" class="tab-content hidden">
-            <h2 class="text-3xl text-center text-gray-800 mb-10">Presentations</h2>
-            <div class="relative overflow-hidden rounded-xl">
-                <div class="carousel flex transition-transform duration-500 ease-in-out" id="presentations-carousel">
-                    {% for project in categorized_projects.Presentations %}
-                    <div class="carousel-item flex-shrink-0 w-full px-4">
-                        <div class="project-card bg-white border border-gray-200 rounded-xl p-10 hover:border-blue-300 transition-all duration-300 min-h-[600px] shadow-sm">
-                            <div class="flex flex-col md:flex-row items-center gap-8 h-full">
-                                <div class="md:w-1/2">
-                                    <img src="{{ project.image }}" alt="{{ project.title }}" class="w-full h-80 object-cover rounded-lg shadow-md">
-                                </div>
-                                <div class="md:w-1/2 flex flex-col justify-center">
-                                    <h3 class="text-4xl text-gray-800 mb-4 font-bold">{{ project.title }}</h3>
-                                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">{{ project.description }}</p>
-                                    <div class="mb-6">
-                                        <h4 class="text-gray-800 mb-2 text-xl">Technologies:</h4>
-                                        <div class="flex flex-wrap gap-2">
-                                            {% for tech in project.technologies %}
-                                            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{{ tech }}</span>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-4">
-                                        <a href="{{ project.live_demo }}" target="_blank" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all shadow-md text-lg">
-                                            View Presentation
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full transition-all shadow-md" id="presentations-prevBtn">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
+                <button class="absolute -left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-blue-600 transition-all z-10 border border-gray-100" id="{{ category|lower }}-prevBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full transition-all shadow-md" id="presentations-nextBtn">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+                <button class="absolute -right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-blue-600 transition-all z-10 border border-gray-100" id="{{ category|lower }}-nextBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
-                <div class="flex justify-center mt-8 space-x-3" id="presentations-indicators">
-                    {% for project in categorized_projects.Presentations %}
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-600 transition-all" data-slide="{{ loop.index0 }}"></button>
-                    {% endfor %}
-                </div>
             </div>
-        </div>
 
-        <!-- Labs Tab -->
-        <div id="labs-tab" class="tab-content hidden">
-            <h2 class="text-3xl text-center text-gray-800 mb-10">Labs</h2>
-            <div class="relative overflow-hidden rounded-xl">
-                <div class="carousel flex transition-transform duration-500 ease-in-out" id="labs-carousel">
-                    {% for project in categorized_projects.Labs %}
-                    <div class="carousel-item flex-shrink-0 w-full px-4">
-                        <div class="project-card bg-white border border-gray-200 rounded-xl p-10 hover:border-blue-300 transition-all duration-300 min-h-[600px] shadow-sm">
-                            <div class="flex flex-col md:flex-row items-center gap-8 h-full">
-                                <div class="md:w-1/2">
-                                    <img src="{{ project.image }}" alt="{{ project.title }}" class="w-full h-80 object-cover rounded-lg shadow-md">
-                                </div>
-                                <div class="md:w-1/2 flex flex-col justify-center">
-                                    <h3 class="text-4xl text-gray-800 mb-4 font-bold">{{ project.title }}</h3>
-                                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">{{ project.description }}</p>
-                                    <div class="mb-6">
-                                        <h4 class="text-gray-800 mb-2 text-xl">Technologies:</h4>
-                                        <div class="flex flex-wrap gap-2">
-                                            {% for tech in project.technologies %}
-                                            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{{ tech }}</span>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-4">
-                                        <a href="{{ project.live_demo }}" target="_blank" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all shadow-md text-lg">
-                                            View Lab
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full transition-all shadow-md" id="labs-prevBtn">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full transition-all shadow-md" id="labs-nextBtn">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-                <div class="flex justify-center mt-8 space-x-3" id="labs-indicators">
-                    {% for project in categorized_projects.Labs %}
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-600 transition-all" data-slide="{{ loop.index0 }}"></button>
-                    {% endfor %}
-                </div>
+            <div class="flex justify-center mt-10 space-x-2" id="{{ category|lower }}-indicators">
+                {% for item in items %}
+                <button class="w-3 h-3 rounded-full bg-gray-300 transition-all" data-slide="{{ loop.index0 }}"></button>
+                {% endfor %}
             </div>
         </div>
+        {% endfor %}
     </div>
 </section>
 
-<section id="contact" class="py-20 bg-gray-50" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-3xl text-center text-gray-800 mb-6">Get In Touch</h2>
-        <p class="text-gray-600 text-center mb-12">Let's collaborate or just say hi 👋</p>
-
-        <div class="grid md:grid-cols-2 gap-12">
-            <!-- Contact Info -->
-            <div class="text-center md:text-left">
-                <h3 class="text-2xl text-gray-800 mb-6">Contact Information</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-center md:justify-start gap-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-gray-800 font-semibold">Email</p>
-                            <a href="mailto:yashgujarathi.ainds@mmcoe.edu.in" class="text-blue-600 hover:text-blue-800 transition-colors">yashgujarathi.ainds@mmcoe.edu.in</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-center md:justify-start gap-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-gray-800 font-semibold">GitHub</p>
-                            <a href="https://github.com/yourusername" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors">github.com/yourusername</a>
+<section id="contact" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="bg-gray-900 rounded-[3rem] p-8 md:p-16 shadow-2xl overflow-hidden relative">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center relative z-10">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">Let's build something secure.</h2>
+                    <p class="text-gray-400 text-lg mb-10">I'm currently looking for new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 bg-blue-600/10 border border-blue-500/20 rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <a href="mailto:yashgujarathi2023.ainds@mmcoe.edu.in" class="text-gray-300 hover:text-white transition-colors">yashgujarathi2023.ainds@mmcoe.edu.in</a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Contact Form -->
-            <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h3 class="text-2xl text-blue-600 mb-6">Send a Message</h3>
-                <form action="/contact" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-gray-700 mb-2">Name</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none transition-colors">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-700 mb-2">Email</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none transition-colors">
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                        <input type="text" id="subject" name="subject" required
-                               class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none transition-colors">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-700 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" required
-                                  class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none transition-colors resize-none"></textarea>
-                    </div>
-                    <button type="submit"
-                            class="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg">
-                        Send Message
-                    </button>
+                <form action="/contact" method="POST" class="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 space-y-4">
+                    <input type="text" name="name" placeholder="Your Name" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-blue-500 outline-none transition-all">
+                    <input type="email" name="email" placeholder="Email Address" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-blue-500 outline-none transition-all">
+                    <textarea name="message" rows="4" placeholder="Your Message" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-blue-500 outline-none transition-all resize-none"></textarea>
+                    <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-all">Send Message</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Skills Modal -->
-<div id="skills-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto">
-        <div class="p-6">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-gray-800">My Skills</h3>
-                <button id="close-modal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+<div id="skills-modal" class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm hidden z-[200] flex items-center justify-center p-4">
+    <div class="bg-white rounded-[2rem] shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="p-8 md:p-12">
+            <div class="flex justify-between items-center mb-10">
+                <h3 class="text-3xl font-black text-gray-900">Technical Arsenal</h3>
+                <button id="close-modal" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-500 hover:bg-red-50 hover:text-red-500 transition-all">&times;</button>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
+            
+            <div class="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h4 class="text-xl font-semibold text-blue-600 mb-4">Technical Skills</h4>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Python</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                    <h4 class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-6">Development</h4>
+                    <div class="space-y-6">
+                        {% for skill, percent in [('Python', 50), ('JavaScript', 35), ('React.js', 30), ('Flask', 35), ('Node.js', 25), ('Django', 50)] %}
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-gray-700">{{ skill }}</span>
+                                <span class="text-gray-400 text-sm">{{ percent }}%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-full rounded-full transition-all duration-1000" 
+                                     style="--w: {{ percent }}%; width: var(--w);">
+                                </div>
                             </div>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">JavaScript</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">React</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Node.js</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Flask</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
+
                 <div>
-                    <h4 class="text-xl font-semibold text-blue-600 mb-4">Cybersecurity Skills</h4>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Penetration Testing</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                    <h4 class="text-red-500 font-bold uppercase tracking-widest text-xs mb-6">Cybersecurity</h4>
+                    <div class="space-y-6">
+                        {% for skill, percent in [('Web-Application-Penetration-Testing', 85), ('Vulnerability Assessment', 80), ('Network Security', 75),] %}
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-gray-700">{{ skill }}</span>
+                                <span class="text-gray-400 text-sm">{{ percent }}%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-red-500 h-full rounded-full transition-all duration-1000" 
+                                     style="--w: {{ percent }}%; width: var(--w);">
+                                </div>
                             </div>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Vulnerability Assessment</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Network Security</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Ethical Hacking</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Automation (n8n)</span>
-                            <div class="w-32 bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            <div class="mt-6 text-center">
-                <button id="close-modal-bottom" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
-                    Close
-                </button>
+
+            <div class="mt-12 text-center">
+                <button id="close-modal-bottom" class="px-10 py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-all">Close Dashboard</button>
             </div>
         </div>
     </div>
 </div>
 
-<footer class="text-center py-6 text-gray-500 text-sm border-t border-gray-200">
-    © 2025 Yash Gujarathi — Designed with 💙 & Flask
+<footer class="text-center py-12 text-gray-400 text-sm border-t border-gray-100 bg-gray-50/30">
+    <p>© 2026 Yash Gujarathi — Crafted with Flask & ❤️</p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Tab Management
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-tab');
+            tabs.forEach(btn => btn.classList.remove('bg-blue-600', 'text-white'));
+            tab.classList.add('bg-blue-600', 'text-white');
+            contents.forEach(content => {
+                content.id === target ? content.classList.remove('hidden') : content.classList.add('hidden');
+            });
+        });
+    });
+
+    // 2. Carousel Controller
+    function setupCarousel(prefix) {
+        const track = document.getElementById(`${prefix}-carousel`);
+        if (!track) return;
+        const items = track.querySelectorAll('.carousel-item');
+        const next = document.getElementById(`${prefix}-nextBtn`);
+        const prev = document.getElementById(`${prefix}-prevBtn`);
+        const indicators = document.querySelectorAll(`#${prefix}-indicators button`);
+        let idx = 0;
+
+        const update = () => {
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            indicators.forEach((dot, i) => dot.classList.toggle('bg-blue-600', i === idx));
+        };
+
+        next.addEventListener('click', () => { idx = (idx + 1) % items.length; update(); });
+        prev.addEventListener('click', () => { idx = (idx - 1 + items.length) % items.length; update(); });
+        indicators.forEach(dot => {
+            dot.addEventListener('click', () => { idx = parseInt(dot.dataset.slide); update(); });
+        });
+        update();
+    }
+
+    setupCarousel('projects');
+    setupCarousel('presentations');
+    setupCarousel('labs');
+
+    // 3. Modal Control
+    const modal = document.getElementById('skills-modal');
+    const openModal = document.getElementById('skills-btn');
+    const closeModal = [document.getElementById('close-modal'), document.getElementById('close-modal-bottom')];
+
+    openModal.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeModal.forEach(btn => btn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }));
+});
+</script>
 {% endblock %}
