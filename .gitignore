@@ -1,31 +1,37 @@
-portfolio/
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.log
-.git
-.mypy_cache
-.pytest_cache
-.hypothesis
-node_modules/
-staticfiles/
-.env
-.idea/
-.vscode/
-*.swp
-*.swo
 
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+# Logs & runtime files
+*.log
+
+# JSON files with sensitive / dynamic data
+visitor_logs.json
+projects_new.json
+
+# Deployment / platform files
+Procfile
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
